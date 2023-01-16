@@ -157,10 +157,12 @@
 /*
 8.*  Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова.
 */
-
-    let str = "Hello world";    
-    let newStr = str.split('').filter(letter => !['a','e','i','o','u','y'].includes(letter.toLowerCase())).join('');
-    console.log(newStr)
+ 
+    let myStr = "Hello world abc";
+    const reg = /[aeyiuo]/g
+    // const myPattern = new RegExp("[aeyiuo]/g"); -- Why it does not work??
+    let myNewStr = myStr.replace(reg, "")
+    console.log(myNewStr)
     
 /*
 9.*  Використовуючи оператор if реалізувати логіку переводу метрів в кілометри,
@@ -170,4 +172,23 @@
     Відмінювання для "метр" (аналогічні закінчення будуть і для слова "кілометр")
 
     Підказка(https://ukr-lifehacks.ed-era.com/rozdil-9/zvyazok_chislivnykiv)
+
+    Кейси:
+    1. Кілометрів (якщо = 0, якщо закінчується на 0, якщо закінчується на 5, 6, 7, 8, 9)
+    2. Кілометр (якщо = 1, якщо закінчується на 1)
+    3. Кілометри (якщо = 2, 3, 4, якщо закінчується на 2, 3, 4)
+    4. Кілометра (якщо число неціле)
 */
+
+    let meter = 10003;
+    const kilometer = meter * 0.001
+    const lastChart = kilometer.toString().slice(-1)
+    if (!Number.isInteger(kilometer)) {
+        console.log(kilometer + " кілометра")
+    } else if (lastChart == 0 || lastChart == 5 || lastChart == 6 || lastChart == 7 || lastChart == 8 || lastChart == 9) {
+        console.log(kilometer + " кілометрів")
+    } else if (lastChart == 1) {
+        console.log(kilometer + " кілометр")
+    } else if (lastChart == 2 || lastChart == 3 || lastChart == 4) {
+        console.log(kilometer + " кілометри")
+    }
