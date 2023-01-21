@@ -180,15 +180,24 @@
     4. Кілометра (якщо число неціле)
 */
 
-    let meter = 10003;
+    let meter = 123000;
     const kilometer = meter * 0.001
-    const lastChart = kilometer.toString().slice(-1)
+    const lastChar = kilometer.toString().slice(-1)
+    const twoLastChars = kilometer.toString().slice(-2)   
     if (!Number.isInteger(kilometer)) {
         console.log(kilometer + " кілометра")
-    } else if (lastChart == 0 || lastChart == 5 || lastChart == 6 || lastChart == 7 || lastChart == 8 || lastChart == 9) {
+    } else if (lastChar == 0 || lastChar == 5 || lastChar == 6 || lastChar == 7 || lastChar == 8 || lastChar == 9) {
         console.log(kilometer + " кілометрів")
-    } else if (lastChart == 1) {
+    } else if (twoLastChars == 11) {
+        console.log(kilometer + " кілометрів") 
+    }  else if (twoLastChars == 12) {
+        console.log(kilometer + " кілометрів") 
+    } else if (twoLastChars == 13) {
+        console.log(kilometer + " кілометрів") 
+    }  else if (twoLastChars == 14) {
+        console.log(kilometer + " кілометрів") 
+    } else if (lastChar == 1) {
         console.log(kilometer + " кілометр")
-    } else if (lastChart == 2 || lastChart == 3 || lastChart == 4) {
+    } else if (lastChar == 2 || lastChar == 3 || lastChar == 4) {
         console.log(kilometer + " кілометри")
     }
